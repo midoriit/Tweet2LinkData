@@ -19,6 +19,18 @@ LinkData.orgでオープンデータを公開するための雛形ファイル�
 ### map
 収集したツイートをマッピングして公開するためのWebアプリです。地図上に示されたマーカーをクリックするとツイートをポップアップ表示します。
 
+以下のOSSを利用しています。
+
+* [Leaflet](http://leafletjs.com/) (2-Clause BSD)
+* [Leaflet.markercluster](https://github.com/Leaflet/Leaflet.markercluster) (MIT license)
+* [Leaflet.Locate](https://github.com/domoritz/leaflet-locatecontrol) (MIT license)
+* [Leaflet.EasyButton](https://github.com/CliffCloud/Leaflet.EasyButton) (MIT license)
+* [leaflet-omnivore](https://github.com/mapbox/leaflet-omnivore) (BSD license)
+* [Leaflet.ExtraMarkers](https://github.com/coryasilva/Leaflet.ExtraMarkers) (MIT license)
+* [Bootstrap](http://getbootstrap.com/) (MIT license)
+* [jQuery](http://jquery.com/) (MIT license)
+* [Font Awesome](https://fortawesome.github.io/Font-Awesome/) (SIL OFL 1.1)
+
 ## 動作環境
 * Webサーバ
 * PHP
