@@ -54,14 +54,15 @@ $(function(){
   });
   map.addLayer(mCluster);
 
-  var mLayer = L.marker();
-
   var csvLayer = omnivore.csv(csvFile,
     {latfield: 'lat', lonfield: 'lon', delimiter: ','});
 
   csvLayer.on('ready', function(layer) {
     this.eachLayer(function(marker) {
       mCluster.addLayer(marker);
+      marker.setIcon(L.ExtraMarkers.icon({
+        markerColor: 'blue',
+      }));
       marker.bindPopup(
         decodeURIComponent(marker.toGeoJSON().properties.embed_html),
         {closeButton: false}
