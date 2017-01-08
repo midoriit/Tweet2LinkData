@@ -1,7 +1,7 @@
 # Tweet2LinkData
 
 ## 概要
-Tweet to LinkDataは、ツイートを用いた参加型オープンデータの収集・公開基盤です。
+Tweet2LinkDataは、ツイートを用いた参加型オープンデータの収集・公開基盤です。
 特定のハッシュタグと位置情報の付いたツイートを定期的に収集してデータベースに格納します。
 収集したデータは、LinkData.orgと地図サイトで公開することができます。
 
@@ -38,7 +38,7 @@ LinkData.orgでオープンデータを公開するための雛形ファイル�
 
 ## 利用例
 ### 月待Bingo!
-[月待Bingo!](https://moon.midoriit.com)はTweet to LinkDataを用いてツイートを収集し、[LinkData.org](http://linkdata.org/work/rdf1s4819i)と[マップ](https://moon.midoriit.com/map/)でデータを公開しています。
+[月待Bingo!](https://moon.midoriit.com)はTweet2LinkDataを用いてツイートを収集し、[LinkData.org](http://linkdata.org/work/rdf1s4819i)と[マップ](https://moon.midoriit.com/map/)でデータを公開しています。
 
 ## 注意事項
 Twitter APIを利用するために、Twitterのユーザアカウントとアプリケーション登録が必要です。
