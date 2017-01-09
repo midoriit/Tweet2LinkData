@@ -148,7 +148,7 @@
   } else {
 
     $file1 = fopen( $mapdata, 'w' );
-    fwrite( $file1, 'tweet_ID,created_at,lat,lon,tweet_url,media_url,embed_html\n' );
+    fwrite( $file1, 'tweet_ID,lat,lon,embed_html\n' );
 
     $file2 = fopen($linkdata, 'w');
     fwrite( $file2, 'tweet_ID,created_at,lat,lon,tweet_url,media_url,pname,mname,section,geoname\n" );
@@ -158,11 +158,8 @@
       // マップ用CSVファイル
       fwrite( $file1,
         $row["tweet_ID"].",".
-        $row["date"].",".
         $row["geo_lat"].",".
         $row["geo_lon"].",".
-        $row["tweet_url"].",".
-        $row["media_url"].",".
         "\"".$row["embed_html"]."\"\n" );
 
       // LinkData用CSVファイル
