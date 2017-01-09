@@ -5,16 +5,15 @@ Tweet2LinkDataは、ツイートを用いた参加型オープンデータの収
 特定のハッシュタグと位置情報の付いたツイートを定期的に収集してデータベースに格納します。
 収集したデータは、LinkData.orgと地図サイトで公開することができます。
 
-## 処理概要
-![](Tweet2LinkData.png)
-
-## フォルダ・ファイル説明
+## 内容
 ### admin
 #### createtable.sql
 MySQLにテーブルを作成するスクリプトです。
 
 #### tweet2linkdata.php
 ツイートを収集してデータベースに格納し、オープンデータ公開用とマップ公開用のCSVファイルを出力するPHPスクリプトです。cron等を使用して定期的に実行します。別途、[TwitterOAuth](https://github.com/abraham/twitteroauth)が必要です。
+
+![](Tweet2LinkData.png)
 
 #### linkdata.xlsx
 LinkData.orgでオープンデータを公開するための雛形ファイルです。
