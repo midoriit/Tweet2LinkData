@@ -23,7 +23,7 @@
     $connection = new TwitterOAuth( $consumer_key, $consumer_secret );
     $tweets = $connection->get( "search/tweets", array('q' => $query1, 'count' => 100) );
   } catch ( Exception $e ) {
-    echo 'Twitter search/tweets error: '.$e->message;
+    echo 'Twitter search/tweets error: '.$e->getMessage();
     die();
   }
 
@@ -129,7 +129,7 @@
           'lang' => 'ja'
         ));
       } catch ( Exception $e ) {
-        echo 'Twitter statuses/oembed error: '.$e->message;
+        echo 'Twitter statuses/oembed error: '.$e->getMessage();
       }
       $query6 = 'UPDATE '.$mysql_tablename.' SET embed_html = "'.rawurlencode($oembed->html).'" WHERE tweet_ID = "'.$row["tweet_ID"].'"';
       $ret6 = $mysqli->query( $query6 );
