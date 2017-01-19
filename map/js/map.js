@@ -84,7 +84,7 @@ $(function(){
       });
 
     });
-    map.fitBounds(csvLayer);
+    map.fitBounds(csvLayer.getBounds());
     $('.leaflet-popup-pane').hide();
   });
 });
