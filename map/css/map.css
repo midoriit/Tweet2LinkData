@@ -45,3 +45,6 @@ html, body {
   width: auto !important;
   margin: 11px;
 }
+.leaflet-top {
+  z-index: 10000;
+}
