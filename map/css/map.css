@@ -16,7 +16,7 @@ html, body {
   display: inline-block;
   width: 100%;
   text-align: center;
-  z-index: 10000;
+  z-index: 1000;
 }
 #titleS {
   font-size: large;
@@ -44,7 +44,4 @@ html, body {
 .leaflet-popup-content {
   width: auto !important;
   margin: 11px;
-}
-.leaflet-top {
-  z-index: 10000;
 }
