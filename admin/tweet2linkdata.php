@@ -148,10 +148,23 @@
   } else {
 
     $file1 = fopen( $mapdata, 'w' );
-    fwrite( $file1, 'tweet_ID,lat,lon,embed_html\n' );
+    if($file1 === FALSE) {
+      $mysqli->close();
+      echo 'Failed to open '.$mapdata;
+      die();
+    } else {
+      fwrite( $file1, 'tweet_ID,lat,lon,embed_html\n' );
+    }
 
     $file2 = fopen($linkdata, 'w');
-    fwrite( $file2, 'tweet_ID,created_at,lat,lon,tweet_url,media_url,pname,mname,section,geoname\n" );
+    if($file2 === FALSE) {
+      $mysqli->close();
+      fclose( $file1 );
+      echo 'Failed to open '.$linkdata;
+      die();
+    } else {
+      fwrite( $file2, 'tweet_ID,created_at,lat,lon,tweet_url,media_url,pname,mname,section,geoname\n" );
+    }
 
     while ( $row = $ret->fetch_assoc() ) {
 
