@@ -21,7 +21,8 @@
   $query1 = $hashtag.' -RT filter:images';
   try {
     $connection = new TwitterOAuth( $consumer_key, $consumer_secret );
-    $tweets = $connection->get( "search/tweets", array('q' => $query1, 'count' => 100) );
+    $tweets = $connection->get( "search/tweets", array('q' => $query1, 'count' => 100,
+    'tweet_mode' => 'extended') );
   } catch ( Exception $e ) {
     echo 'Twitter search/tweets error: '.$e->getMessage();
     die();
@@ -52,7 +53,7 @@
         "str_to_date('".date('Y/m/d H:i:s', strtotime($tweet->created_at))."','%Y/%m/%d %H:%i:%s'),".
         "'".$tweet->user->name."',".
         "'".$tweet->user->screen_name."',".
-        "'".$tweet->text."',".
+        "'".$tweet->full_text."',".
         "'".$tweet->place->full_name."',".
         "cast('".$tweet->geo->coordinates[0]."' AS DECIMAL(20,10)),".
         "cast('".$tweet->geo->coordinates[1]."' AS DECIMAL(20,10)),".
