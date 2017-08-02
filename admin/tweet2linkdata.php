@@ -131,6 +131,7 @@
         ));
       } catch ( Exception $e ) {
         echo 'Twitter statuses/oembed error: '.$e->getMessage();
+        break;
       }
       $query6 = 'UPDATE '.$mysql_tablename.' SET embed_html = "'.rawurlencode($oembed->html).'" WHERE tweet_ID = "'.$row["tweet_ID"].'"';
       $ret6 = $mysqli->query( $query6 );
