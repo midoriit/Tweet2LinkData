@@ -98,6 +98,8 @@
           $section = $json->result->local[0]->section;
         } else if ( $json->status == '202' ) {
           $section = $json->result->aza[0]->name;
+        } else {
+          $section = '';
         }
         $mname = str_replace( ' ', '', $json->result->municipality->mname );
         $query4 = 'UPDATE '.$mysql_tablename.' SET '.
