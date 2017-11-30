@@ -39,6 +39,7 @@
     echo $mysqli->error;
     die();
   }
+  $mysqli->query("SET NAMES 'utf8'");   // 念の為
 
   // Insert Data
   foreach ( $tweets->statuses as $tweet ) {
