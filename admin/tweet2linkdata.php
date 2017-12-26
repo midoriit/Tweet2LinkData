@@ -44,12 +44,18 @@
   // Insert Data
   foreach ( $tweets->statuses as $tweet ) {
 
-    if ( $tweet->geo && $tweet->entities->media ) {
+    if ( $tweet->geo && $tweet->extended_entities->media ) {
     // 緯度経度あり、写真あり
+
+      $media_url[0] = $media_url[1] = $media_url[2] = $media_url[3] = $media_url[4] ="";
+      for ( $i = 0 ; $i < count($tweet->extended_entities->media) ; $i++ ) {
+        $media_url[$i] = $tweet->extended_entities->media[$i]->media_url_https;
+      }
 
       $query2 = "INSERT INTO ".$mysql_tablename.
         " (tweet_ID, created_at, user_name, screen_name, tweet_text, ".
-        "place_full_name, geo_lat, geo_lon, tweet_url, media_url) VALUES (".
+        "place_full_name, geo_lat, geo_lon, tweet_url, media_url_1, ".
+        "media_url_2, media_url_3, media_url_4, media_url_5) VALUES (".
         "'".$tweet->id_str."',".
         "str_to_date('".date('Y/m/d H:i:s', strtotime($tweet->created_at))."','%Y/%m/%d %H:%i:%s'),".
         "'".$tweet->user->name."',".
@@ -59,7 +65,11 @@
         "cast('".$tweet->geo->coordinates[0]."' AS DECIMAL(20,10)),".
         "cast('".$tweet->geo->coordinates[1]."' AS DECIMAL(20,10)),".
         "'".$tweet->entities->media[0]->url."',".
-        "'".$tweet->entities->media[0]->media_url_https."')";
+        "'".$media_url[0]."',".
+        "'".$media_url[1]."',".
+        "'".$media_url[2]."',".
+        "'".$media_url[3]."',".
+        "'".$media_url[4]."')";
       $ret2 = $mysqli->query( $query2 );
 
       if ( !$ret2 ) {
@@ -168,7 +178,7 @@
       echo 'Failed to open '.$linkdata;
       die();
     } else {
-      fwrite( $file2, 'tweet_ID,created_at,lat,lon,tweet_url,media_url,pname,mname,section,geoname\n' );
+      fwrite( $file2, 'tweet_ID,created_at,lat,lon,tweet_url,media_url_1,media_url_2,media_url_3,media_url_4,media_url_5,pname,mname,section,geoname\n' );
     }
 
     while ( $row = $ret7->fetch_assoc() ) {
@@ -187,7 +197,11 @@
         $row["geo_lat"].",".
         $row["geo_lon"].",".
         $row["tweet_url"].",".
-        $row["media_url"].",".
+        $row["media_url_1"].",".
+        $row["media_url_2"].",".
+        $row["media_url_3"].",".
+        $row["media_url_4"].",".
+        $row["media_url_5"].",".
         "\"".$row["pname"]."\",\"".$row["mname"]."\",\"".$row["section"]."\",".
         "\"http://geonames.jp/resource/".$row["pname"].$row["mname"].$row["section"]."\"\n" );
 
