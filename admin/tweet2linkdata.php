@@ -91,7 +91,7 @@
     echo $mysqli->error;
   } else {
     $base_url = 'http://www.finds.jp/ws/rgeocode.php';
-    while ( $row = $ret->fetch_assoc() ) {
+    while ( $row = $ret3->fetch_assoc() ) {
       $url = $base_url.'?json&lat='.$row["geo_lat"].'&lon='.$row["geo_lon"];
       if( $resp = file_get_contents($url) ) {
         $json = json_decode($resp);
@@ -122,7 +122,7 @@
   if ( !$ret5 ) {
     echo $mysqli->error;
   } else {
-    while ( $row = $ret->fetch_assoc() ) {
+    while ( $row = $ret5->fetch_assoc() ) {
       try {
         $oembed = $connection->get( 'statuses/oembed', array(
           'id' => $row["tweet_ID"],
@@ -168,10 +168,10 @@
       echo 'Failed to open '.$linkdata;
       die();
     } else {
-      fwrite( $file2, 'tweet_ID,created_at,lat,lon,tweet_url,media_url,pname,mname,section,geoname\n" );
+      fwrite( $file2, 'tweet_ID,created_at,lat,lon,tweet_url,media_url,pname,mname,section,geoname\n' );
     }
 
-    while ( $row = $ret->fetch_assoc() ) {
+    while ( $row = $ret7->fetch_assoc() ) {
 
       // マップ用CSVファイル
       fwrite( $file1,
