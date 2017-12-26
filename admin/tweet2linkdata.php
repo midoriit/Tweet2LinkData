@@ -44,6 +44,7 @@
   // Insert Data
   foreach ( $tweets->statuses as $tweet ) {
 
+    $found_tweets++;
     if ( $tweet->geo && $tweet->extended_entities->media ) {
     // 緯度経度あり、写真あり
 
