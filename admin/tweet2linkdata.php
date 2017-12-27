@@ -169,7 +169,7 @@
       echo 'Failed to open '.$mapdata;
       die();
     } else {
-      fwrite( $file1, 'tweet_ID,lat,lon,embed_html\n' );
+      fwrite( $file1, "tweet_ID,lat,lon,embed_html\n" );
     }
 
     $file2 = fopen($linkdata, 'w');
@@ -179,7 +179,7 @@
       echo 'Failed to open '.$linkdata;
       die();
     } else {
-      fwrite( $file2, 'tweet_ID,created_at,lat,lon,tweet_url,media_url_1,media_url_2,media_url_3,media_url_4,media_url_5,pname,mname,section,geoname\n' );
+      fwrite( $file2, "tweet_ID,created_at,lat,lon,tweet_url,media_url_1,media_url_2,media_url_3,media_url_4,media_url_5,pname,mname,section,geoname\n" );
     }
 
     while ( $row = $ret7->fetch_assoc() ) {
