@@ -49,7 +49,7 @@
     // 緯度経度あり、写真あり
 
       $media_url[0] = $media_url[1] = $media_url[2] = $media_url[3] = $media_url[4] ="";
-      for ( $i = 0 ; $i < count($tweet->extended_entities->media) ; $i++ ) {
+      for ( $i = 0 ; ($i < count($tweet->extended_entities->media)) && ($i < 5) ; $i++ ) {
         $media_url[$i] = $tweet->extended_entities->media[$i]->media_url_https;
       }
 
