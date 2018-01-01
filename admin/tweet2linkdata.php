@@ -29,17 +29,16 @@
   }
 
   $mysqli = new mysqli( $mysql_server, $mysql_username, $mysql_password, $mysql_database );
+  if ( !$mysqli ) {
+    echo $mysqli->error;
+    die();
+  }
+  $mysqli->query("SET NAMES 'utf8mb4'");   // 念の為
 
   $found_tweets = 0;
   $new_tweets = 0;
   $invalid_tweets = 0;
   $tweets_exist = 0;
-
-  if ( !$mysqli ) {
-    echo $mysqli->error;
-    die();
-  }
-  $mysqli->query("SET NAMES 'utf8'");   // 念の為
 
   // Insert Data
   foreach ( $tweets->statuses as $tweet ) {

@@ -1,9 +1,9 @@
 CREATE TABLE `opendata` (
   `tweet_ID` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL,
-  `user_name` varchar(255) NOT NULL,
+  `user_name` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
   `screen_name` varchar(255) NOT NULL,
-  `tweet_text` varchar(500) NOT NULL,
+  `tweet_text` varchar(500) CHARACTER SET utf8mb4 NOT NULL,
   `place_full_name` varchar(255) NOT NULL,
   `geo_lat` decimal(20,10) NOT NULL,
   `geo_lon` float(20,10) NOT NULL,
