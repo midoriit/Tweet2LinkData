@@ -58,10 +58,10 @@
         "media_url_2, media_url_3, media_url_4, media_url_5) VALUES (".
         "'".$tweet->id_str."',".
         "str_to_date('".date('Y/m/d H:i:s', strtotime($tweet->created_at))."','%Y/%m/%d %H:%i:%s'),".
-        "'".$tweet->user->name."',".
-        "'".$tweet->user->screen_name."',".
-        "'".$tweet->full_text."',".
-        "'".$tweet->place->full_name."',".
+        "'".$mysqli->real_escape_string($tweet->user->name)."',".
+        "'".$mysqli->real_escape_string($tweet->user->screen_name)."',".
+        "'".$mysqli->real_escape_string($tweet->full_text)."',".
+        "'".$mysqli->real_escape_string($tweet->place->full_name)."',".
         "cast('".$tweet->geo->coordinates[0]."' AS DECIMAL(20,10)),".
         "cast('".$tweet->geo->coordinates[1]."' AS DECIMAL(20,10)),".
         "'".$tweet->entities->media[0]->url."',".
