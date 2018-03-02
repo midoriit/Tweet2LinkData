@@ -156,7 +156,7 @@
   $mysqli->commit();
 
   // Export to CSV
-  $query7 = "SELECT tweet_ID, DATE_FORMAT(created_at,'%Y-%m-%d') AS date, geo_lat, geo_lon, tweet_url, media_url, pname, mname, section, embed_html FROM ".$mysql_tablename." WHERE invalid != 1";
+  $query7 = "SELECT tweet_ID, DATE_FORMAT(created_at,'%Y-%m-%d') AS date, geo_lat, geo_lon, tweet_url, media_url_1, media_url_2, media_url_3, media_url_4, media_url_5, pname, mname, section, embed_html FROM ".$mysql_tablename." WHERE invalid != 1";
   $ret7 = $mysqli->query( $query7 );
   if ( !$ret7 ) {
     echo $mysqli->error;
