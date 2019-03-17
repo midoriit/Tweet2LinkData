@@ -82,9 +82,42 @@ $(function(){
       marker.on('popupclose', function(layer) { 
         $('.leaflet-popup-pane').hide();
       });
-
     });
-    map.fitBounds(csvLayer.getBounds());
+
+    var lat=0, lng=0, zoom=0;
+    var pstr = location.search.substring(1);
+    if(pstr) {
+      var parr = pstr.split('&');
+      var ppair;
+      for (i = 0; i < parr.length; i++) {
+        ppair = parr[i].split('=');
+        switch (ppair[0]){
+          case 'x':
+            lng = ppair[1];
+            break;
+          case 'y':
+            lat = ppair[1];
+            break;
+          case 'z':
+            zoom = ppair[1];
+            break;
+        }
+      }
+      if(lat !=0 && lng != 0 && zoom != 0) {
+        map.setView([lat, lng], zoom);
+      } else {
+        map.fitBounds(csvLayer.getBounds());
+      }
+    } else {
+      map.fitBounds(csvLayer.getBounds());
+    }
+
+    map.on('moveend', function() {
+      history.replaceState(null, null, "?x=" + map.getCenter().lng +
+                                       "&y=" + map.getCenter().lat + 
+                                       "&z=" + map.getZoom());
+    });
+
     $('.leaflet-popup-pane').hide();
   });
 });
