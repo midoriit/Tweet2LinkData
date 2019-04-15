@@ -40,7 +40,7 @@ LinkData.orgでオープンデータを公開するための雛形ファイル�
 
 ## 利用例
 #### 月待ビンゴ
-[月待ビンゴ](https://moon.midoriit.com)はTweet2LinkDataを用いてツイートを収集し、[LinkData.org](http://linkdata.org/work/rdf1s4819i)と[マップ](https://moon.midoriit.com/map/)でデータを公開しています。
+[月待ビンゴ](https://moon.midoriit.com)はTweet2LinkDataを用いてツイートを収集し、[GitHub](https://github.com/midoriit/tsukimachito)と[マップ](https://moon.midoriit.com/map/)でデータを公開しています。
 
 #### 狛犬ツイートマップ
 [狛犬ツイートマップ](https://komainu.midoriit.com)は、Tweet2LinkDataを用いて収集したツイートをマップに表示しています。InstagramアプリによるTwitterとInstagramへの同時投稿では、ツイートではなくInstagramの投稿をポップアップ表示するよう機能拡張してあります。
